@@ -113,7 +113,7 @@ module cv32e40p_cs_registers_tmr
 parameter NUM_INSTANCES = 3;
 
 logic fs_off_o_tmr[NUM_INSTANCES], m_irq_enable_o_tmr[NUM_INSTANCES], u_irq_enable_o_tmr[NUM_INSTANCES], sec_lvl_o_tmr[NUM_INSTANCES], debug_single_step_o_tmr[NUM_INSTANCES], debug_ebreakm_o_tmr[NUM_INSTANCES], debug_ebreaku_o_tmr[NUM_INSTANCES], trigger_match_o_tmr[NUM_INSTANCES];
-logic [2:0] frm_o_tmr[NUM_INSTANCES];
+logic frm_o_tmr[2:0][NUM_INSTANCES];
 logic [23:0] mtvec_o_tmr[NUM_INSTANCES], utvec_o_tmr[NUM_INSTANCES];
 logic [1:0] mtvec_mode_o_tmr[NUM_INSTANCES], utvec_mode_o_tmr[NUM_INSTANCES];
 logic [31:0] csr_rdata_o_tmr[NUM_INSTANCES], mie_bypass_o_tmr[NUM_INSTANCES], mepc_o_tmr[NUM_INSTANCES], uepc_o_tmr[NUM_INSTANCES], mcounteren_o_tmr[NUM_INSTANCES], depc_o_tmr[NUM_INSTANCES];
@@ -123,241 +123,241 @@ PrivLvl_t priv_lvl_o_tmr[NUM_INSTANCES];
 
     genvar i;
     for(i=0; i < NUM_INSTANCES; i++) begin : inst_loop
-        cv32e40p_cs_registers inst
+        cv32e40p_cs_registers
         #(
-            parameter N_HWLP           = 2,
-            parameter APU              = 0,
-            parameter A_EXTENSION      = 0,
-            parameter FPU              = 0,
-            parameter ZFINX            = 0,
-            parameter PULP_SECURE      = 0,
-            parameter USE_PMP          = 0,
-            parameter N_PMP_ENTRIES    = 16,
-            parameter NUM_MHPMCOUNTERS = 1,
-            parameter COREV_PULP       = 0,
-            parameter COREV_CLUSTER    = 0,
-            parameter DEBUG_TRIGGER_EN = 1
-        ) (
+            N_HWLP,      
+            APU,         
+            A_EXTENSION, 
+            FPU,         
+            ZFINX,
+            PULP_SECURE, 
+            USE_PMP,     
+            N_PMP_ENTRIES,
+            NUM_MHPMCOUNTERS, 
+            COREV_PULP,       
+            COREV_CLUSTER,    
+            DEBUG_TRIGGER_EN 
+        ) inst (
             .clk (clk),
             .rst_n (rst_n),
-            hart_id_i (hart_id_i),
-            mtvec_o_tmr (mtvec_o[i]),
-            utvec_o_tmr (utvec_o[i]),
-            mtvec_mode_o_tmr (mtvec_mode_o[i]),
-            utvec_mode_o_tmr (utvec_mode_o[i]),
-            mtvec_addr_i (mtvec_addr_i),
-            csr_mtvec_init_i (csr_mtvec_init_i),
-            csr_addr_i (csr_addr_i),
-            csr_wdata_i (csr_wdata_i),
-            csr_op_i (csr_op_i),
-            csr_rdata_o_tmr (csr_rdata_o[i]),
-            fs_off_o_tmr (fs_off_o[i]),
-            frm_o_tmr (frm_o[i]),
-            fflags_i (fflags_i),
-            fflags_we_i (fflags_we_i),
-            fregs_we_i (fregs_we_i),
-            mie_bypass_o_tmr (mie_bypass_o[i]),
-            mip_i (mip_i),
-            m_irq_enable_o_tmr (m_irq_enable_o[i]),
-            u_irq_enable_o (u_irq_enable_o),
-            csr_irq_sec_i (csr_irq_sec_i),
-            sec_lvl_o_tmr (sec_lvl_o[i]),
-            mepc_o_tmr (mepc_o[i]),
-            uepc_o_tmr (uepc_o[i]),
-            mcounteren_o_tmr (mcounteren_o[i]),
-            debug_mode_i (debug_mode_i),
-            debug_cause_i (debug_cause_i),
-            debug_csr_save_i (debug_csr_save_i),
-            depc_o_tmr (depc_o[i]),
-            debug_single_step_o_tmr (debug_single_step_o[i]),
-            debug_ebreakm_o_tmr (debug_ebreakm_o[i]),
-            debug_ebreaku_o_tmr (debug_ebreaku_o[i]),
-            trigger_match_o_tmr (trigger_match_o[i]),
-            pmp_addr_o_tmr (pmp_addr_o[i]),
-            pmp_cfg_o_tmr (pmp_cfg_o[i]),
-            priv_lvl_o_tmr (priv_lvl_o[i]),
-            pc_if_i (pc_if_i),
-            pc_id_i (pc_id_i),
-            pc_ex_i (pc_ex_i),
-            csr_save_if_i (csr_save_if_i),
-            csr_save_id_i (csr_save_id_i),
-            csr_save_ex_i (csr_save_ex_i),
-            csr_restore_mret_i (csr_restore_mret_i),
-            csr_restore_uret_i (csr_restore_uret_i),
-            csr_restore_dret_i (csr_restore_dret_i),
-            csr_cause_i (csr_cause_i),
-            csr_save_cause_i (csr_save_cause_i),
-            hwlp_start_i (hwlp_start_i),
-            hwlp_end_i (hwlp_end_i),
-            hwlp_cnt_i (hwlp_cnt_i),
-            mhpmevent_minstret_i (mhpmevent_minstret_i),
-            mhpmevent_load_i (mhpmevent_load_i),
-            mhpmevent_store_i (mhpmevent_store_i),
-            mhpmevent_jump_i (mhpmevent_jump_i),
-            mhpmevent_branch_i (mhpmevent_branch_i),  
-            mhpmevent_branch_taken_i (mhpmevent_branch_taken_i),
-            mhpmevent_compressed_i (mhpmevent_compressed_i),
-            mhpmevent_jr_stall_i (mhpmevent_jr_stall_i),
-            mhpmevent_imiss_i (mhpmevent_imiss_i),
-            mhpmevent_ld_stall_i (mhpmevent_ld_stall_i),
-            mhpmevent_pipe_stall_i (mhpmevent_pipe_stall_i),
-            apu_typeconflict_i (apu_typeconflict_i),
-            apu_contention_i (apu_contention_i),
-            apu_dep_i (apu_dep_i),
-            apu_wb_i (apu_wb_i)
-        )
+            .hart_id_i (hart_id_i),
+            .mtvec_o (mtvec_o_tmr[i]),
+            .utvec_o (utvec_o_tmr[i]),
+            .mtvec_mode_o (mtvec_mode_o_tmr[i]),
+            .utvec_mode_o (utvec_mode_o_tmr[i]),
+            .mtvec_addr_i (mtvec_addr_i),
+            .csr_mtvec_init_i (csr_mtvec_init_i),
+            .csr_addr_i (csr_addr_i),
+            .csr_wdata_i (csr_wdata_i),
+            .csr_op_i (csr_op_i),
+            .csr_rdata_o (csr_rdata_o_tmr[i]),
+            .fs_off_o (fs_off_o_tmr[i]),
+            .frm_o (frm_o_tmr[i]),
+            .fflags_i (fflags_i),
+            .fflags_we_i (fflags_we_i),
+            .fregs_we_i (fregs_we_i),
+            .mie_bypass_o (mie_bypass_o_tmr[i]),
+            .mip_i (mip_i),
+            .m_irq_enable_o (m_irq_enable_o_tmr[i]),
+            .u_irq_enable_o (u_irq_enable_o),
+            .csr_irq_sec_i (csr_irq_sec_i),
+            .sec_lvl_o (sec_lvl_o_tmr[i]),
+            .mepc_o (mepc_o_tmr[i]),
+            .uepc_o (uepc_o_tmr[i]),
+            .mcounteren_o (mcounteren_o_tmr[i]),
+            .debug_mode_i (debug_mode_i),
+            .debug_cause_i (debug_cause_i),
+            .debug_csr_save_i (debug_csr_save_i),
+            .depc_o (depc_o_tmr[i]),
+            .debug_single_step_o (debug_single_step_o_tmr[i]),
+            .debug_ebreakm_o (debug_ebreakm_o_tmr[i]),
+            .debug_ebreaku_o (debug_ebreaku_o_tmr[i]),
+            .trigger_match_o (trigger_match_o_tmr[i]),
+            .pmp_addr_o (pmp_addr_o_tmr[i]),
+            .pmp_cfg_o (pmp_cfg_o_tmr[i]),
+            .priv_lvl_o (priv_lvl_o_tmr[i]),
+            .pc_if_i (pc_if_i),
+            .pc_id_i (pc_id_i),
+            .pc_ex_i (pc_ex_i),
+            .csr_save_if_i (csr_save_if_i),
+            .csr_save_id_i (csr_save_id_i),
+            .csr_save_ex_i (csr_save_ex_i),
+            .csr_restore_mret_i (csr_restore_mret_i),
+            .csr_restore_uret_i (csr_restore_uret_i),
+            .csr_restore_dret_i (csr_restore_dret_i),
+            .csr_cause_i (csr_cause_i),
+            .csr_save_cause_i (csr_save_cause_i),
+            .hwlp_start_i (hwlp_start_i),
+            .hwlp_end_i (hwlp_end_i),
+            .hwlp_cnt_i (hwlp_cnt_i),
+            .mhpmevent_minstret_i (mhpmevent_minstret_i),
+            .mhpmevent_load_i (mhpmevent_load_i),
+            .mhpmevent_store_i (mhpmevent_store_i),
+            .mhpmevent_jump_i (mhpmevent_jump_i),
+            .mhpmevent_branch_i (mhpmevent_branch_i),  
+            .mhpmevent_branch_taken_i (mhpmevent_branch_taken_i),
+            .mhpmevent_compressed_i (mhpmevent_compressed_i),
+            .mhpmevent_jr_stall_i (mhpmevent_jr_stall_i),
+            .mhpmevent_imiss_i (mhpmevent_imiss_i),
+            .mhpmevent_ld_stall_i (mhpmevent_ld_stall_i),
+            .mhpmevent_pipe_stall_i (mhpmevent_pipe_stall_i),
+            .apu_typeconflict_i (apu_typeconflict_i),
+            .apu_contention_i (apu_contention_i),
+            .apu_dep_i (apu_dep_i),
+            .apu_wb_i (apu_wb_i)
+        );
     end
 
 // 22 outputs
 
-cv32e40p_voter voter_1 (
+cv32e40p_voter voter_csr_1 (
     .res1(fs_off_o_tmr[0]),
     .res2(fs_off_o_tmr[1]),
     .res3(fs_off_o_tmr[2]),
     .result_o(fs_off_o)
 );
 
-cv32e40p_voter voter_2 (
+cv32e40p_voter voter_csr_2 (
     .res1(m_irq_enable_o_tmr[0]),
     .res2(m_irq_enable_o_tmr[1]),
     .res3(m_irq_enable_o_tmr[2]),
-    .result_o(m_irq_enable_o),
+    .result_o(m_irq_enable_o)
 );
 
-cv32e40p_voter voter_3 (
+cv32e40p_voter voter_csr_3 (
     .res1(u_irq_enable_o_tmr[0]),
     .res2(u_irq_enable_o_tmr[1]),
     .res3(u_irq_enable_o_tmr[2]),
-    .result_o(u_irq_enable_o),
+    .result_o(u_irq_enable_o)
 );
 
-cv32e40p_voter voter_4 (
+cv32e40p_voter voter_csr_4 (
     .res1(sec_lvl_o_tmr[0]),
     .res2(sec_lvl_o_tmr[1]),
     .res3(sec_lvl_o_tmr[2]),
-    .result_o(sec_lvl_o),
+    .result_o(sec_lvl_o)
 );
 
-cv32e40p_voter voter_5 (
+cv32e40p_voter voter_csr_5 (
     .res1(debug_single_step_o_tmr[0]),
     .res2(debug_single_step_o_tmr[1]),
     .res3(debug_single_step_o_tmr[2]),
     .result_o(debug_single_step_o)
 );
 
-cv32e40p_voter voter_6 (
+cv32e40p_voter voter_csr_6 (
     .res1(debug_ebreakm_o_tmr[0]),
     .res2(debug_ebreakm_o_tmr[1]),
     .res3(debug_ebreakm_o_tmr[2]),
     .result_o(debug_ebreakm_o)
 );
 
-cv32e40p_voter voter_7 (
+cv32e40p_voter voter_csr_7 (
     .res1(debug_ebreaku_o_tmr[0]),
     .res2(debug_ebreaku_o_tmr[1]),
     .res3(debug_ebreaku_o_tmr[2]),
     .result_o(debug_ebreaku_o)
 );
 
-cv32e40p_voter voter_8 (
+cv32e40p_voter voter_csr_8 (
     .res1(trigger_match_o_tmr[0]),
     .res2(debug_ebreaku_o_tmr[1]),
     .res3(debug_ebreaku_o_tmr[2]),
     .result_o(debug_ebreaku_o)
 );
 
-cv32e40p_voter #(3) voter_9 (
+cv32e40p_voter_generic #(3) voter_csr_9 (
     .res1(frm_o_tmr[0]),
     .res2(frm_o_tmr[1]),
     .res3(frm_o_tmr[2]),
     .result_o(frm_o)
 );
 
-cv32e40p_voter #(24) voter_10 (
+cv32e40p_voter_generic #(24) voter_csr_10 (
     .res1(mtvec_o_tmr[0]),
     .res2(mtvec_o_tmr[1]),
     .res3(mtvec_o_tmr[2]),
     .result_o(mtvec_o)
 );
 
-cv32e40p_voter #(24) voter_11 (
+cv32e40p_voter_generic #(24) voter_csr_11 (
     .res1(utvec_o_tmr[0]),
     .res2(utvec_o_tmr[1]),
     .res3(utvec_o_tmr[2]),
     .result_o(utvec_o)
 );
 
-cv32e40p_voter #(2) voter_12 (
+cv32e40p_voter_generic #(2) voter_csr_12 (
     .res1(mtvec_mode_o_tmr[0]),
     .res2(mtvec_mode_o_tmr[1]),
     .res3(mtvec_mode_o_tmr[2]),
     .result_o(mtvec_mode_o)
 );
 
-cv32e40p_voter #(32) voter_13 (
+cv32e40p_voter_generic #(32) voter_csr_13 (
     .res1(utvec_mode_o_tmr[0]),
     .res2(utvec_mode_o_tmr[1]),
     .res3(utvec_mode_o_tmr[2]),
     .result_o(utvec_mode_o)
 );
 
-cv32e40p_voter #(32) voter_14 (
+cv32e40p_voter_generic #(32) voter_csr_14 (
     .res1(csr_rdata_o_tmr[0]),
     .res2(csr_rdata_o_tmr[1]),
     .res3(csr_rdata_o_tmr[2]),
     .result_o(csr_rdata_o)
 );
 
-cv32e40p_voter #(32) voter_15 (
+cv32e40p_voter_generic #(32) voter_csr_15 (
     .res1(mie_bypass_o_tmr[0]),
     .res2(mie_bypass_o_tmr[1]),
     .res3(mie_bypass_o_tmr[2]),
     .result_o(mie_bypass_o)
 );
 
-cv32e40p_voter #(32) voter_16 (
+cv32e40p_voter_generic #(32) voter_csr_16 (
     .res1(mepc_o_tmr[0]),
     .res2(mepc_o_tmr[1]),
     .res3(mepc_o_tmr[2]),
     .result_o(mepc_o)
 );
 
-cv32e40p_voter #(32) voter_17 (
+cv32e40p_voter_generic #(32) voter_csr_17 (
     .res1(uepc_o_tmr[0]),
     .res2(uepc_o_tmr[1]),
     .res3(uepc_o_tmr[2]),
     .result_o(uepc_o)
 );
 
-cv32e40p_voter #(32) voter_18 (
+cv32e40p_voter_generic #(32) voter_csr_18 (
     .res1(mcounteren_o_tmr[0]),
     .res2(mcounteren_o_tmr[1]),
     .res3(mcounteren_o_tmr[2]),
     .result_o(mcounteren_o)
 );
 
-cv32e40p_voter #(32) voter_19 (
+cv32e40p_voter_generic #(32) voter_csr_19 (
     .res1(depc_o_tmr[0]),
     .res2(depc_o_tmr[1]),
     .res3(depc_o_tmr[2]),
     .result_o(depc_o)
 );
 
-cv32e40p_voter #(N_PMP_ENTRIES, 8) voter_20 (
+cv32e40p_voter_generic2D #(N_PMP_ENTRIES, 8) voter_csr_20 (
     .res1(pmp_addr_o_tmr[0]),
     .res2(pmp_addr_o_tmr[1]),
     .res3(pmp_addr_o_tmr[2]),
     .result_o(pmp_addr_o)
 );
 
-cv32e40p_voter #(N_PMP_ENTRIES, 32) voter_21 (
+cv32e40p_voter_generic2D #(N_PMP_ENTRIES, 32) voter_csr_21 (
     .res1(pmp_cfg_o_tmr[0]),
     .res2(pmp_cfg_o_tmr[1]),
     .res3(pmp_cfg_o_tmr[2]),
     .result_o(pmp_cfg_o)
 );
 
-cv32e40p_voter #(N_PMP_ENTRIES, 32) voter_22 (
+cv32e40p_voter_generic2D #(N_PMP_ENTRIES, 32) voter_csr_22 (
     .res1(priv_lvl_o_tmr[0]),
     .res2(priv_lvl_o_tmr[1]),
     .res3(priv_lvl_o_tmr[2]),
