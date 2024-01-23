@@ -24,7 +24,7 @@ PT_SHELL		= pt_shell
 VLIB			= vlib
 
 VLOG			= vlog
-VLOG_FLAGS		= -pedanticerrors -suppress 2577 -suppress 2583 -define CV32E40P_TRACE_EXECUTION
+VLOG_FLAGS		= -pedanticerrors -suppress 2577 -suppress 2583 #-define CV32E40P_TRACE_EXECUTION
 VLOG_LOG        = vloggy
 
 VOPT			= vopt

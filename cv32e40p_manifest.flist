@@ -33,8 +33,10 @@ ${DESIGN_RTL_DIR}/include/cv32e40p_fpu_pkg.sv
 ${DESIGN_RTL_DIR}/include/cv32e40p_pkg.sv
 ${DESIGN_RTL_DIR}/cv32e40p_voter.sv
 ${DESIGN_RTL_DIR}/cv32e40p_voter_generic.sv
+${DESIGN_RTL_DIR}/cv32e40p_voter_generic2D.sv
 ${DESIGN_RTL_DIR}/cv32e40p_if_stage.sv
 ${DESIGN_RTL_DIR}/cv32e40p_cs_registers.sv
+${DESIGN_RTL_DIR}/cv32e40p_cs_registers_tmr.sv
 ${DESIGN_RTL_DIR}/cv32e40p_register_file_ff.sv
 ${DESIGN_RTL_DIR}/cv32e40p_load_store_unit.sv
 ${DESIGN_RTL_DIR}/cv32e40p_id_stage.sv
