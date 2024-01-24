@@ -112,11 +112,25 @@ module cv32e40p_cs_registers_tmr
 
 parameter NUM_INSTANCES = 3;
 
-logic fs_off_o_tmr[NUM_INSTANCES], m_irq_enable_o_tmr[NUM_INSTANCES], u_irq_enable_o_tmr[NUM_INSTANCES], sec_lvl_o_tmr[NUM_INSTANCES], debug_single_step_o_tmr[NUM_INSTANCES], debug_ebreakm_o_tmr[NUM_INSTANCES], debug_ebreaku_o_tmr[NUM_INSTANCES], trigger_match_o_tmr[NUM_INSTANCES];
-logic frm_o_tmr[2:0][NUM_INSTANCES];
-logic [23:0] mtvec_o_tmr[NUM_INSTANCES], utvec_o_tmr[NUM_INSTANCES];
-logic [1:0] mtvec_mode_o_tmr[NUM_INSTANCES], utvec_mode_o_tmr[NUM_INSTANCES];
-logic [31:0] csr_rdata_o_tmr[NUM_INSTANCES], mie_bypass_o_tmr[NUM_INSTANCES], mepc_o_tmr[NUM_INSTANCES], uepc_o_tmr[NUM_INSTANCES], mcounteren_o_tmr[NUM_INSTANCES], depc_o_tmr[NUM_INSTANCES];
+logic fs_off_o_tmr[NUM_INSTANCES];
+logic m_irq_enable_o_tmr[NUM_INSTANCES];
+logic u_irq_enable_o_tmr[NUM_INSTANCES];
+logic sec_lvl_o_tmr[NUM_INSTANCES];
+logic debug_single_step_o_tmr[NUM_INSTANCES];
+logic debug_ebreakm_o_tmr[NUM_INSTANCES];
+logic debug_ebreaku_o_tmr[NUM_INSTANCES]; 
+logic trigger_match_o_tmr[NUM_INSTANCES];
+logic [2:0] frm_o_tmr[NUM_INSTANCES];
+logic [23:0] mtvec_o_tmr[NUM_INSTANCES];
+logic [23:0] utvec_o_tmr[NUM_INSTANCES];
+logic [1:0] mtvec_mode_o_tmr[NUM_INSTANCES];
+logic [1:0] utvec_mode_o_tmr[NUM_INSTANCES];
+logic [31:0] csr_rdata_o_tmr[NUM_INSTANCES]; 
+logic [31:0] mie_bypass_o_tmr[NUM_INSTANCES]; 
+logic [31:0] mepc_o_tmr[NUM_INSTANCES]; 
+logic [31:0] uepc_o_tmr[NUM_INSTANCES]; 
+logic [31:0] mcounteren_o_tmr[NUM_INSTANCES];
+logic [31:0] depc_o_tmr[NUM_INSTANCES];
 logic [N_PMP_ENTRIES-1:0][31:0] pmp_addr_o_tmr[NUM_INSTANCES];
 logic [N_PMP_ENTRIES-1:0][7:0] pmp_cfg_o_tmr[NUM_INSTANCES];
 PrivLvl_t priv_lvl_o_tmr[NUM_INSTANCES];
@@ -261,8 +275,8 @@ cv32e40p_voter voter_csr_7 (
 
 cv32e40p_voter voter_csr_8 (
     .res1(trigger_match_o_tmr[0]),
-    .res2(debug_ebreaku_o_tmr[1]),
-    .res3(debug_ebreaku_o_tmr[2]),
+    .res2(trigger_match_o_tmr[1]),
+    .res3(trigger_match_o_tmr[2]),
     .result_o(debug_ebreaku_o)
 );
 
@@ -294,70 +308,70 @@ cv32e40p_voter_generic #(2) voter_csr_12 (
     .result_o(mtvec_mode_o)
 );
 
-cv32e40p_voter_generic #(32) voter_csr_13 (
+cv32e40p_voter_generic #(2) voter_csr_13 (
     .res1(utvec_mode_o_tmr[0]),
     .res2(utvec_mode_o_tmr[1]),
     .res3(utvec_mode_o_tmr[2]),
     .result_o(utvec_mode_o)
 );
 
-cv32e40p_voter_generic #(32) voter_csr_14 (
+cv32e40p_voter_generic voter_csr_14 (
     .res1(csr_rdata_o_tmr[0]),
     .res2(csr_rdata_o_tmr[1]),
     .res3(csr_rdata_o_tmr[2]),
     .result_o(csr_rdata_o)
 );
 
-cv32e40p_voter_generic #(32) voter_csr_15 (
+cv32e40p_voter_generic voter_csr_15 (
     .res1(mie_bypass_o_tmr[0]),
     .res2(mie_bypass_o_tmr[1]),
     .res3(mie_bypass_o_tmr[2]),
     .result_o(mie_bypass_o)
 );
 
-cv32e40p_voter_generic #(32) voter_csr_16 (
+cv32e40p_voter_generic voter_csr_16 (
     .res1(mepc_o_tmr[0]),
     .res2(mepc_o_tmr[1]),
     .res3(mepc_o_tmr[2]),
     .result_o(mepc_o)
 );
 
-cv32e40p_voter_generic #(32) voter_csr_17 (
+cv32e40p_voter_generic voter_csr_17 (
     .res1(uepc_o_tmr[0]),
     .res2(uepc_o_tmr[1]),
     .res3(uepc_o_tmr[2]),
     .result_o(uepc_o)
 );
 
-cv32e40p_voter_generic #(32) voter_csr_18 (
+cv32e40p_voter_generic voter_csr_18 (
     .res1(mcounteren_o_tmr[0]),
     .res2(mcounteren_o_tmr[1]),
     .res3(mcounteren_o_tmr[2]),
     .result_o(mcounteren_o)
 );
 
-cv32e40p_voter_generic #(32) voter_csr_19 (
+cv32e40p_voter_generic voter_csr_19 (
     .res1(depc_o_tmr[0]),
     .res2(depc_o_tmr[1]),
     .res3(depc_o_tmr[2]),
     .result_o(depc_o)
 );
 
-cv32e40p_voter_generic2D #(N_PMP_ENTRIES, 8) voter_csr_20 (
+cv32e40p_voter_generic2D voter_csr_20 (
     .res1(pmp_addr_o_tmr[0]),
     .res2(pmp_addr_o_tmr[1]),
     .res3(pmp_addr_o_tmr[2]),
     .result_o(pmp_addr_o)
 );
 
-cv32e40p_voter_generic2D #(N_PMP_ENTRIES, 32) voter_csr_21 (
+cv32e40p_voter_generic2D #(N_PMP_ENTRIES, 8) voter_csr_21 (
     .res1(pmp_cfg_o_tmr[0]),
     .res2(pmp_cfg_o_tmr[1]),
     .res3(pmp_cfg_o_tmr[2]),
     .result_o(pmp_cfg_o)
 );
 
-cv32e40p_voter_generic2D #(N_PMP_ENTRIES, 32) voter_csr_22 (
+cv32e40p_voter_generic #(2) voter_csr_22 (
     .res1(priv_lvl_o_tmr[0]),
     .res2(priv_lvl_o_tmr[1]),
     .res3(priv_lvl_o_tmr[2]),
