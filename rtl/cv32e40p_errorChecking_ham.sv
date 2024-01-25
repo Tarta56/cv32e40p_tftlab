@@ -7,7 +7,7 @@ module cv32e40p_errorChecking_ham (
 
     logic [5:0] addr_of_wrong_bit ;
 
-    logic [37_0] temp_vect ;
+    logic [37:0] temp_vect ;
 
     assign addr_of_wrong_bit[0] = data_in_from_RF[0] ^ recomputed_input[0] ; 
     assign addr_of_wrong_bit[1] = data_in_from_RF[1] ^ recomputed_input[1] ;
@@ -32,7 +32,7 @@ module cv32e40p_errorChecking_ham (
       RF_double_Error = 1 ;
     end else begin
       // Flip the bit at position addr_of_wrong_bit in the signal in order to flip the bit
-      data_Out[addr_of_wrong_bit - 1 ] = data_in_from_RF ^ (1 << (addr_of_wrong_bit - 1 )) ;  // l ha scritto chatGPT, verificare se e' giusto lmao. 
+      data_Out[addr_of_wrong_bit - 1 ] = data_in_from_RF ^ (1 << (addr_of_wrong_bit - 1 ) ) ; 
       RF_double_Error = 0 ;
     end
 
