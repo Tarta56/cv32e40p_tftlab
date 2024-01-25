@@ -277,7 +277,7 @@ cv32e40p_voter voter_csr_8 (
     .res1(trigger_match_o_tmr[0]),
     .res2(trigger_match_o_tmr[1]),
     .res3(trigger_match_o_tmr[2]),
-    .result_o(debug_ebreaku_o)
+    .result_o(trigger_match_o)
 );
 
 cv32e40p_voter_generic #(3) voter_csr_9 (

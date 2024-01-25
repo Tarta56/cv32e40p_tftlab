@@ -175,49 +175,49 @@ module cv32e40p_controller_tmr import cv32e40p_pkg::*;
 
   parameter NUM_INSTANCES = 3;
 
-  logic        ctrl_busy_o_tmr[NUM_INSTANCES],               
-  logic        is_decoding_o_tmr[NUM_INSTANCES],             
-  logic        deassert_we_o_tmr[NUM_INSTANCES],             
-  logic        hwlp_mask_o_tmr[NUM_INSTANCES],              
-  logic        instr_req_o_tmr[NUM_INSTANCES],              
-  logic        pc_set_o_tmr[NUM_INSTANCES],                 
-  logic [3:0]  pc_mux_o_tmr[NUM_INSTANCES],                 
-  logic [2:0]  exc_pc_mux_o_tmr[NUM_INSTANCES],             
-  logic [1:0]  trap_addr_mux_o_tmr[NUM_INSTANCES],          
-  logic [1:0]  hwlp_dec_cnt_o_tmr[NUM_INSTANCES],
-  logic        hwlp_jump_o_tmr[NUM_INSTANCES],
-  logic [31:0] hwlp_targ_addr_o_tmr[NUM_INSTANCES],
-  logic        data_err_ack_o_tmr[NUM_INSTANCES],
-  logic        apu_stall_o_tmr[NUM_INSTANCES],
-  logic        irq_ack_o_tmr[NUM_INSTANCES],
-  logic [4:0]  irq_id_o_tmr[NUM_INSTANCES],
-  logic [4:0]  exc_cause_o_tmr[NUM_INSTANCES],
-  logic        debug_mode_o_tmr[NUM_INSTANCES],
-  logic [2:0]  debug_cause_o_tmr[NUM_INSTANCES],
-  logic        debug_csr_save_o_tmr[NUM_INSTANCES],
-  logic        debug_p_elw_no_sleep_o_tmr[NUM_INSTANCES],
-  logic        debug_wfi_no_sleep_o_tmr[NUM_INSTANCES],
-  logic        debug_havereset_o_tmr[NUM_INSTANCES],
-  logic        debug_running_o_tmr[NUM_INSTANCES],
-  logic        debug_halted_o_tmr[NUM_INSTANCES],
-  logic        wake_from_sleep_o_tmr[NUM_INSTANCES],
-  logic        csr_save_if_o_tmr[NUM_INSTANCES],
-  logic        csr_save_id_o_tmr[NUM_INSTANCES],
-  logic        csr_save_ex_o_tmr[NUM_INSTANCES],
-  logic [5:0]  csr_cause_o_tmr[NUM_INSTANCES],
-  logic        csr_irq_sec_o_tmr[NUM_INSTANCES],
-  logic        csr_restore_mret_id_o_tmr[NUM_INSTANCES],
-  logic        csr_restore_uret_id_o_tmr[NUM_INSTANCES],
-  logic        csr_restore_dret_id_o_tmr[NUM_INSTANCES],
-  logic        csr_save_cause_o_tmr[NUM_INSTANCES],
-  logic [1:0]  operand_a_fw_mux_sel_o_tmr[NUM_INSTANCES],
-  logic [1:0]  operand_b_fw_mux_sel_o_tmr[NUM_INSTANCES],
-  logic [1:0]  operand_c_fw_mux_sel_o_tmr[NUM_INSTANCES],
-  logic        halt_if_o_tmr[NUM_INSTANCES],
-  logic        halt_id_o_tmr[NUM_INSTANCES],
-  logic        misaligned_stall_o_tmr[NUM_INSTANCES],
-  logic        jr_stall_o_tmr[NUM_INSTANCES],
-  logic        load_stall_o_tmr[NUM_INSTANCES],
+  logic        ctrl_busy_o_tmr[NUM_INSTANCES];              
+  logic        is_decoding_o_tmr[NUM_INSTANCES];             
+  logic        deassert_we_o_tmr[NUM_INSTANCES];             
+  logic        hwlp_mask_o_tmr[NUM_INSTANCES];              
+  logic        instr_req_o_tmr[NUM_INSTANCES];              
+  logic        pc_set_o_tmr[NUM_INSTANCES];                 
+  logic [3:0]  pc_mux_o_tmr[NUM_INSTANCES];                 
+  logic [2:0]  exc_pc_mux_o_tmr[NUM_INSTANCES];             
+  logic [1:0]  trap_addr_mux_o_tmr[NUM_INSTANCES];          
+  logic [1:0]  hwlp_dec_cnt_o_tmr[NUM_INSTANCES];
+  logic        hwlp_jump_o_tmr[NUM_INSTANCES];
+  logic [31:0] hwlp_targ_addr_o_tmr[NUM_INSTANCES];
+  logic        data_err_ack_o_tmr[NUM_INSTANCES];
+  logic        apu_stall_o_tmr[NUM_INSTANCES];
+  logic        irq_ack_o_tmr[NUM_INSTANCES];
+  logic [4:0]  irq_id_o_tmr[NUM_INSTANCES];
+  logic [4:0]  exc_cause_o_tmr[NUM_INSTANCES];
+  logic        debug_mode_o_tmr[NUM_INSTANCES];
+  logic [2:0]  debug_cause_o_tmr[NUM_INSTANCES];
+  logic        debug_csr_save_o_tmr[NUM_INSTANCES];
+  logic        debug_p_elw_no_sleep_o_tmr[NUM_INSTANCES];
+  logic        debug_wfi_no_sleep_o_tmr[NUM_INSTANCES];
+  logic        debug_havereset_o_tmr[NUM_INSTANCES];
+  logic        debug_running_o_tmr[NUM_INSTANCES];
+  logic        debug_halted_o_tmr[NUM_INSTANCES];
+  logic        wake_from_sleep_o_tmr[NUM_INSTANCES];
+  logic        csr_save_if_o_tmr[NUM_INSTANCES];
+  logic        csr_save_id_o_tmr[NUM_INSTANCES];
+  logic        csr_save_ex_o_tmr[NUM_INSTANCES];
+  logic [5:0]  csr_cause_o_tmr[NUM_INSTANCES];
+  logic        csr_irq_sec_o_tmr[NUM_INSTANCES];
+  logic        csr_restore_mret_id_o_tmr[NUM_INSTANCES];
+  logic        csr_restore_uret_id_o_tmr[NUM_INSTANCES];
+  logic        csr_restore_dret_id_o_tmr[NUM_INSTANCES];
+  logic        csr_save_cause_o_tmr[NUM_INSTANCES];
+  logic [1:0]  operand_a_fw_mux_sel_o_tmr[NUM_INSTANCES];
+  logic [1:0]  operand_b_fw_mux_sel_o_tmr[NUM_INSTANCES];
+  logic [1:0]  operand_c_fw_mux_sel_o_tmr[NUM_INSTANCES];
+  logic        halt_if_o_tmr[NUM_INSTANCES];
+  logic        halt_id_o_tmr[NUM_INSTANCES];
+  logic        misaligned_stall_o_tmr[NUM_INSTANCES];
+  logic        jr_stall_o_tmr[NUM_INSTANCES];
+  logic        load_stall_o_tmr[NUM_INSTANCES];
   logic        perf_pipeline_stall_o_tmr[NUM_INSTANCES];
 
  genvar i;

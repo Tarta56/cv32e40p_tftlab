@@ -88,7 +88,7 @@ genvar i;
     .res1(mulh_active_o_tmr[0]),
     .res2(mulh_active_o_tmr[1]),
     .res3(mulh_active_o_tmr[2]),
-    .result_o(ready_o)
+    .result_o(mulh_active_o)
   );
 
   cv32e40p_voter voter_4 (

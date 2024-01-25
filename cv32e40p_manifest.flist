@@ -37,7 +37,7 @@ ${DESIGN_RTL_DIR}/cv32e40p_voter_generic2D.sv
 ${DESIGN_RTL_DIR}/cv32e40p_if_stage.sv
 ${DESIGN_RTL_DIR}/cv32e40p_cs_registers.sv
 ${DESIGN_RTL_DIR}/cv32e40p_cs_registers_tmr.sv
-${DESIGN_RTL_DIR}/cv32e40p_register_file_ff.sv
+//${DESIGN_RTL_DIR}/cv32e40p_register_file_ff.sv
 ${DESIGN_RTL_DIR}/cv32e40p_register_file_ff_hamming.sv
 ${DESIGN_RTL_DIR}/cv32e40p_load_store_unit.sv
 //${DESIGN_RTL_DIR}/cv32e40p_id_stage.sv
@@ -51,12 +51,12 @@ ${DESIGN_RTL_DIR}/cv32e40p_fifo.sv
 ${DESIGN_RTL_DIR}/cv32e40p_prefetch_buffer.sv
 ${DESIGN_RTL_DIR}/cv32e40p_hwloop_regs.sv
 ${DESIGN_RTL_DIR}/cv32e40p_mult.sv
-//${DESIGN_RTL_DIR}/cv32e40p_mult_tmr.sv
+${DESIGN_RTL_DIR}/cv32e40p_mult_tmr.sv
 ${DESIGN_RTL_DIR}/cv32e40p_int_controller.sv
 ${DESIGN_RTL_DIR}/cv32e40p_ex_stage.sv
 ${DESIGN_RTL_DIR}/cv32e40p_alu_div.sv
 ${DESIGN_RTL_DIR}/cv32e40p_alu.sv
-//${DESIGN_RTL_DIR}/cv32e40p_alu_tmr.sv
+${DESIGN_RTL_DIR}/cv32e40p_alu_tmr.sv
 ${DESIGN_RTL_DIR}/cv32e40p_ff_one.sv
 ${DESIGN_RTL_DIR}/cv32e40p_popcnt.sv
 ${DESIGN_RTL_DIR}/cv32e40p_apu_disp.sv
