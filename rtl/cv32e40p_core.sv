@@ -96,7 +96,12 @@ module cv32e40p_core
 
     // CPU Control Signals
     input  logic fetch_enable_i,
-    output logic core_sleep_o
+    output logic core_sleep_o,
+
+    //my added primary outputs
+    output logic RF_DED_1,
+    output logic RF_DED_2,
+    output logic RF_DED_3
 );
 
   import cv32e40p_pkg::*;
@@ -731,7 +736,11 @@ module cv32e40p_core
       .mhpmevent_pipe_stall_o  (mhpmevent_pipe_stall),
 
       .perf_imiss_i(perf_imiss),
-      .mcounteren_i(mcounteren)
+      .mcounteren_i(mcounteren),
+
+      .RF_DED_1(RF_DED_1),
+      .RF_DED_2(RF_DED_2),
+      .RF_DED_3(RF_DED_3)
   );
 
 
