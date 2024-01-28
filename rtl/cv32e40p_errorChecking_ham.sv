@@ -2,12 +2,13 @@ module cv32e40p_errorChecking_ham (
     input logic [37:0] data_in_from_RF,
     input logic [37:0] recomputed_input,
     output logic [31:0] data_Out,
-    output logic RF_double_Error
+    output logic RF_double_Error,
+	output logic Single_error
 );
 
     logic [5:0] addr_of_wrong_bit ;
 
-    logic [37:0] temp_vect ;
+    //logic [37:0] temp_vect ;
 
     assign addr_of_wrong_bit[0] = data_in_from_RF[0] ^ recomputed_input[0] ; 
     assign addr_of_wrong_bit[1] = data_in_from_RF[1] ^ recomputed_input[1] ;
@@ -25,18 +26,20 @@ module cv32e40p_errorChecking_ham (
      data_Out[31:26] = data_in_from_RF[37:32] ;
 
     if (addr_of_wrong_bit == 0) begin
-      // If input1 is zero, well my friend, that means that no error occured.
+      // If input1 is zero that means that no error occured.
       RF_double_Error = 0 ;
+      Single_error = 0 ;
     end else if (addr_of_wrong_bit > 38 ) begin
       // If input1 is greater than 38, this means a double error has occured.
       RF_double_Error = 1 ;
+	Single_error = 0;
     end else begin
       // Flip the bit at position addr_of_wrong_bit in the signal in order to flip the bit
       data_Out[addr_of_wrong_bit - 1 ] = data_in_from_RF ^ (1 << (addr_of_wrong_bit - 1 ) ) ; 
       RF_double_Error = 0 ;
+	Single_error = 1 ;
     end
 
   end
-
 
 endmodule

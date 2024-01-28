@@ -35,7 +35,10 @@ module cv32e40p_register_file_ff_hamming #(
     //my added primary outputs (indication about double data error detection from RF check)
     output logic RF_DED_1,
     output logic RF_DED_2,
-    output logic RF_DED_3
+    output logic RF_DED_3,
+	output logic Single_error1,
+	output logic Single_error2,
+	output logic Single_error3
 );
 
 
@@ -51,6 +54,7 @@ module cv32e40p_register_file_ff_hamming #(
   logic [ 37:0]      regfile_data_rb_id_preCheck ;
   logic [ 37:0]      regfile_data_rc_id_preCheck ;
 
+	
 ////////////////////////////////my ADDITION OF HAMMING CODE GENERATOR//////////////////////////////////////////////////////
 
 //for first write port
@@ -127,21 +131,24 @@ cv32e40p_errorChecking_ham errorChecking_ham_1 (
     .data_in_from_RF(regfile_data_ra_id_preCheck),
     .recomputed_input(recomputed_ham_code_signal_1),
     .data_Out(rdata_a_o_RFHAM),
-    .RF_double_Error(RF_DED_1)
+    .RF_double_Error(RF_DED_1),
+    .Single_error(Single_error1)
 );
 
 cv32e40p_errorChecking_ham errorChecking_ham_2 (
     .data_in_from_RF(regfile_data_rb_id_preCheck),
     .recomputed_input(recomputed_ham_code_signal_2),
     .data_Out(rdata_b_o_RFHAM),
-    .RF_double_Error(RF_DED_2)
+    .RF_double_Error(RF_DED_2),
+    .Single_error(Single_error2)
 );
 
 cv32e40p_errorChecking_ham errorChecking_ham_3 (
     .data_in_from_RF(regfile_data_rc_id_preCheck),
     .recomputed_input(recomputed_ham_code_signal_3),
     .data_Out(rdata_c_o_RFHAM),
-    .RF_double_Error(RF_DED_3)
+    .RF_double_Error(RF_DED_3),
+    .Single_error(Single_error3)
 );
 
 

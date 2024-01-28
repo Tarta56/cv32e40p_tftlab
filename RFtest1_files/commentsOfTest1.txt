@@ -1,0 +1,5 @@
+
+
+the files in this folder indicate the reports after testing the hardened Register File. In this test the primary outputs of the Double Error Detection signals were not included in the strobe file.
+
+

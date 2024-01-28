@@ -101,7 +101,11 @@ module cv32e40p_core
     //my added primary outputs
     output logic RF_DED_1,
     output logic RF_DED_2,
-    output logic RF_DED_3
+    output logic RF_DED_3,
+
+	output logic Single_error1,
+	output logic Single_error2,
+	output logic Single_error3
 );
 
   import cv32e40p_pkg::*;
@@ -740,7 +744,11 @@ module cv32e40p_core
 
       .RF_DED_1(RF_DED_1),
       .RF_DED_2(RF_DED_2),
-      .RF_DED_3(RF_DED_3)
+      .RF_DED_3(RF_DED_3),
+
+	  .Single_error1(Single_error1),
+	  .Single_error2(Single_error2),
+	  .Single_error3(Single_error3)
   );
 
 

@@ -1,0 +1,4 @@
+This folder contains the reports generated when testing the single Register file component. 
+In this test the strobe file contains both the Double Error Detection signals and the Single Error Detection.
+
+
