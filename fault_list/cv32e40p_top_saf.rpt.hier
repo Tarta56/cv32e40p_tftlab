@@ -1,6 +1,11 @@
 Version("1.1")
+<<<<<<< HEAD
+Date("01/28/24 02:44:45")
+User("s314294")
+=======
 Date("01/28/24 00:34:06")
 User("s319857")
+>>>>>>> random
 Tool("FMGR")
 Info("  Type:    Fault Coverage Report")
 Info("  Version: T-2022.06-SP2 (64-bit, Nov 15 2022)")
@@ -9,7 +14,11 @@ Info("  Classes: All")
 
 FunctionalBlocks{
      1 design {
+<<<<<<< HEAD
+           1  sbst 0ps {F:47944 ND:1218 DD:2161 NC:3379 NO:41158 NS:28}
+=======
            1  sbst 0ps {F:54926 ND:7164 DD:15502 PD:5 NC:2479 NO:29592 NS:184}
+>>>>>>> random
     }
 }
 
@@ -22,6 +31,16 @@ FaultInfo{
 
 FaultList{
 
+<<<<<<< HEAD
+Total             ND             DD             NC              NO           NS Scope
+----- -------------- -------------- -------------- --------------- ------------ -----
+47944 1218   (2.54%) 2161   (4.51%) 3379   (7.05%) 41158  (85.85%) 28   (0.06%) cv32e40p_top
+47944 1218   (2.54%) 2161   (4.51%) 3379   (7.05%) 41158  (85.85%) 28   (0.06%) -core_i
+47944 1218   (2.54%) 2161   (4.51%) 3379   (7.05%) 41158  (85.85%) 28   (0.06%) --ex_stage_i
+16078  610   (3.79%)    0   (0.00%)  610   (3.79%) 14846  (92.34%) 12   (0.07%) ---mult_i (2093 hidden instances, 16078 faults)
+16038  608   (3.79%)    0   (0.00%)  608   (3.79%) 14814  (92.37%)  8   (0.05%) ---mult_2 (2088 hidden instances, 16038 faults)
+15828    0   (0.00%) 2161  (13.65%) 2161  (13.65%) 11498  (72.64%)  8   (0.05%) ---mult_3 (2046 hidden instances, 15828 faults)
+=======
 Total             ND              DD           PD             NC              NO            NS Scope
 ----- -------------- --------------- ------------ -------------- --------------- ------------- -----
 54926 7164  (13.04%) 15502  (28.22%)  5   (0.01%) 2479   (4.51%) 29592  (53.88%) 184   (0.33%) cv32e40p_top
@@ -39,6 +58,7 @@ Total             ND              DD           PD             NC              NO
  5940    1   (0.02%)     9   (0.15%)  1   (0.02%)    9   (0.15%)  5864  (98.72%)  56   (0.94%) ----alu_div_i (767 hidden instances, 5940 faults)
   432    0   (0.00%)     0   (0.00%)  0   (0.00%)    0   (0.00%)   432 (100.00%)   0   (0.00%) ----ff_one_i (63 hidden instances, 432 faults)
   340    0   (0.00%)     0   (0.00%)  0   (0.00%)    0   (0.00%)   340 (100.00%)   0   (0.00%) ----popcnt_i (39 hidden instances, 340 faults)
+>>>>>>> random
 }
 #------------------------------------------------------------------------------
 # Faults listed:       Prime: 0        Total: 0
@@ -47,6 +67,20 @@ Total             ND              DD           PD             NC              NO
 #
 #                                        Prime             Total
 #------------------------------------------------------------------------------
+<<<<<<< HEAD
+# Total Faults:                          47944             47944
+#
+# Dropped Detected                 DD     2161   4.51%      2161   4.51%
+# Dropped Potential                PD        0   0.00%         0   0.00%
+# Not Detected                     ND     1218   2.54%      1218   2.54%
+# Not Strobed                      NS       28   0.06%        28   0.06%
+# Not Observed                     NO    41158  85.85%     41158  85.85%
+# Not Controlled                   NC     3379   7.05%      3379   7.05%
+#
+# Faults not detected yet:
+#   Not simulated yet:                   44565  92.95%     44565  92.95%
+#   Simulated 1 to 5 times:               1218   2.54%      1218   2.54%
+=======
 # Total Faults:                          54926             54926
 #
 # Dropped Detected                 DD    15502  28.22%     15502  28.22%
@@ -59,14 +93,24 @@ Total             ND              DD           PD             NC              NO
 # Faults not detected yet:
 #   Not simulated yet:                   32255  58.72%     32255  58.72%
 #   Simulated 1 to 5 times:               7169  13.05%      7169  13.05%
+>>>>>>> random
 #   Simulated 6 to 10 times:                 0   0.00%         0   0.00%
 #   Simulated > 10 times:                    0   0.00%         0   0.00%
 #
 # Faults potentially detected:
+<<<<<<< HEAD
+#   Possible 1 to 5 times:                   0   0.00%         0   0.00%
+#   Possible 6 to 10 times:                  0   0.00%         0   0.00%
+#   Possible > 10 times:                     0   0.00%         0   0.00%
+#
+# Test Coverage                                  4.51%             4.51%
+# Fault Coverage                                 4.51%             4.51%
+=======
 #   Possible 1 to 5 times:                   5   0.01%         5   0.01%
 #   Possible 6 to 10 times:                  0   0.00%         0   0.00%
 #   Possible > 10 times:                     0   0.00%         0   0.00%
 #
 # Test Coverage                                 28.23%            28.23%
 # Fault Coverage                                28.23%            28.23%
+>>>>>>> random
 #------------------------------------------------------------------------------

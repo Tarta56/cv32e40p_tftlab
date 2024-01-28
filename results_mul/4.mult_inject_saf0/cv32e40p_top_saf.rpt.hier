@@ -1,0 +1,63 @@
+Version("1.1")
+Date("01/28/24 02:40:29")
+User("s314294")
+Tool("FMGR")
+Info("  Type:    Fault Coverage Report")
+Info("  Version: T-2022.06-SP2 (64-bit, Nov 15 2022)")
+Info("  Models:  All")
+Info("  Classes: All")
+
+FunctionalBlocks{
+     1 design {
+           1  sbst 0ps {F:47944 ND:2518 DD:2161 NC:4679 NO:38558 NS:28}
+    }
+}
+
+FaultInfo{
+    FubNum;
+    TestNum;
+    Attempts;
+    NumPot;
+}
+
+FaultList{
+
+Total             ND             DD             NC              NO           NS Scope
+----- -------------- -------------- -------------- --------------- ------------ -----
+47944 2518   (5.25%) 2161   (4.51%) 4679   (9.76%) 38558  (80.42%) 28   (0.06%) cv32e40p_top
+47944 2518   (5.25%) 2161   (4.51%) 4679   (9.76%) 38558  (80.42%) 28   (0.06%) -core_i
+47944 2518   (5.25%) 2161   (4.51%) 4679   (9.76%) 38558  (80.42%) 28   (0.06%) --ex_stage_i
+16078 1262   (7.85%)    0   (0.00%) 1262   (7.85%) 13542  (84.23%) 12   (0.07%) ---mult_i (2093 hidden instances, 16078 faults)
+16038 1256   (7.83%)    0   (0.00%) 1256   (7.83%) 13518  (84.29%)  8   (0.05%) ---mult_2 (2088 hidden instances, 16038 faults)
+15828    0   (0.00%) 2161  (13.65%) 2161  (13.65%) 11498  (72.64%)  8   (0.05%) ---mult_3 (2046 hidden instances, 15828 faults)
+}
+#------------------------------------------------------------------------------
+# Faults listed:       Prime: 0        Total: 0
+#------------------------------------------------------------------------------
+# Fault Coverage Summary
+#
+#                                        Prime             Total
+#------------------------------------------------------------------------------
+# Total Faults:                          47944             47944
+#
+# Dropped Detected                 DD     2161   4.51%      2161   4.51%
+# Dropped Potential                PD        0   0.00%         0   0.00%
+# Not Detected                     ND     2518   5.25%      2518   5.25%
+# Not Strobed                      NS       28   0.06%        28   0.06%
+# Not Observed                     NO    38558  80.42%     38558  80.42%
+# Not Controlled                   NC     4679   9.76%      4679   9.76%
+#
+# Faults not detected yet:
+#   Not simulated yet:                   43265  90.24%     43265  90.24%
+#   Simulated 1 to 5 times:               2518   5.25%      2518   5.25%
+#   Simulated 6 to 10 times:                 0   0.00%         0   0.00%
+#   Simulated > 10 times:                    0   0.00%         0   0.00%
+#
+# Faults potentially detected:
+#   Possible 1 to 5 times:                   0   0.00%         0   0.00%
+#   Possible 6 to 10 times:                  0   0.00%         0   0.00%
+#   Possible > 10 times:                     0   0.00%         0   0.00%
+#
+# Test Coverage                                  4.51%             4.51%
+# Fault Coverage                                 4.51%             4.51%
+#------------------------------------------------------------------------------

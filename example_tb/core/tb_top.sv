@@ -28,8 +28,9 @@ module tb_top #(
 	`ifdef GATE_LEVEL_TOP
   		initial begin
     		// force wrapper_i.top_i.core_i.ex_stage_i.alu_voter.voter_2.U6.A = 0;
-			   force wrapper_i.top_i.core_i.ex_stage_i.alu_voter.voter_1.U157.B2 = 1;
-  		end
+		   force wrapper_i.top_i.core_i.ex_stage_i.alu_voter.voter_1.U157.B2 = 1;
+ 		//force wrapper_i.top_i.core_i.ex_stage_i.mult_voter.voter_1.U92.A1 = 1; 		
+		end
 	`endif
 
   // comment to record execution trace
