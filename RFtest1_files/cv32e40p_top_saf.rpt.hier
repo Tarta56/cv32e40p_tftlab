@@ -1,5 +1,5 @@
 Version("1.1")
-Date("01/26/24 16:17:22")
+Date("01/28/24 17:22:11")
 User("s308882")
 Tool("FMGR")
 Info("  Type:    Fault Coverage Report")
@@ -9,7 +9,7 @@ Info("  Classes: All")
 
 FunctionalBlocks{
      1 design {
-           1  sbst 0ps {F:67546 ND:9784 DD:24447 PD:630 NC:15646 NO:15065 NS:1974}
+           1  sbst 0ps {F:67858 ND:9858 DD:24497 PD:614 NC:15712 NO:15177 NS:2000}
     }
 }
 
@@ -24,17 +24,17 @@ FaultList{
 
 Total             ND              DD            PD              NC              NO             NS Scope
 ----- -------------- --------------- ------------- --------------- --------------- -------------- -----
-67546 9784  (14.48%) 24447  (36.19%) 630   (0.93%) 15646  (23.16%) 15065  (22.30%) 1974   (2.92%) cv32e40p_top
-67546 9784  (14.48%) 24447  (36.19%) 630   (0.93%) 15646  (23.16%) 15065  (22.30%) 1974   (2.92%) -core_i
-67546 9784  (14.48%) 24447  (36.19%) 630   (0.93%) 15646  (23.16%) 15065  (22.30%) 1974   (2.92%) --id_stage_i
-67546 9784  (14.48%) 24447  (36.19%) 630   (0.93%) 15646  (23.16%) 15065  (22.30%) 1974   (2.92%) ---register_file_i (4 hidden instances, 16 faults)
-64352 9674  (15.03%) 22531  (35.01%) 630   (0.98%) 15396  (23.92%) 14187  (22.05%) 1934   (3.01%) ----register_file_ff_i (8925 hidden instances, 64352 faults)
+67858 9858  (14.53%) 24497  (36.10%) 614   (0.90%) 15712  (23.15%) 15177  (22.37%) 2000   (2.95%) cv32e40p_top
+67858 9858  (14.53%) 24497  (36.10%) 614   (0.90%) 15712  (23.15%) 15177  (22.37%) 2000   (2.95%) -core_i
+67858 9858  (14.53%) 24497  (36.10%) 614   (0.90%) 15712  (23.15%) 15177  (22.37%) 2000   (2.95%) --id_stage_i
+67858 9858  (14.53%) 24497  (36.10%) 614   (0.90%) 15712  (23.15%) 15177  (22.37%) 2000   (2.95%) ---register_file_i (2 hidden instances, 8 faults)
+64554 9754  (15.11%) 22561  (34.95%) 614   (0.95%) 15448  (23.93%) 14243  (22.06%) 1934   (3.00%) ----register_file_ff_i (8973 hidden instances, 64554 faults)
   348   45  (12.93%)   294  (84.48%)   0   (0.00%)     9   (2.59%)     0   (0.00%)    0   (0.00%) ----hamming_generator_4 (58 hidden instances, 348 faults)
-  348   28   (8.05%)   246  (70.69%)   0   (0.00%)    74  (21.26%)     0   (0.00%)    0   (0.00%) ----hamming_generator_1 (58 hidden instances, 348 faults)
-  364   18   (4.95%)   333  (91.48%)   0   (0.00%)     5   (1.37%)     0   (0.00%)    8   (2.20%) ----hamming_generator_3 (60 hidden instances, 364 faults)
-  348    8   (2.30%)   330  (94.83%)   0   (0.00%)    10   (2.87%)     0   (0.00%)    0   (0.00%) ----hamming_generator_2 (58 hidden instances, 348 faults)
- 1008    6   (0.60%)   372  (36.90%)   0   (0.00%)   102  (10.12%)   510  (50.60%)   18   (1.79%) ----errorChecking_ham_1 (162 hidden instances, 1008 faults)
-  762    5   (0.66%)   325  (42.65%)   0   (0.00%)    50   (6.56%)   368  (48.29%)   14   (1.84%) ----errorChecking_ham_2 (104 hidden instances, 762 faults)
+  350   26   (7.43%)   246  (70.29%)   0   (0.00%)    76  (21.71%)     0   (0.00%)    2   (0.57%) ----hamming_generator_1 (58 hidden instances, 350 faults)
+  360   18   (5.00%)   329  (91.39%)   0   (0.00%)     5   (1.39%)     0   (0.00%)    8   (2.22%) ----hamming_generator_3 (59 hidden instances, 360 faults)
+  364   10   (2.75%)   344  (94.51%)   0   (0.00%)    10   (2.75%)     0   (0.00%)    0   (0.00%) ----hamming_generator_2 (62 hidden instances, 364 faults)
+  784    5   (0.64%)   325  (41.45%)   0   (0.00%)    50   (6.38%)   378  (48.21%)   26   (3.32%) ----errorChecking_ham_2 (108 hidden instances, 784 faults)
+ 1090    0   (0.00%)   390  (35.78%)   0   (0.00%)   114  (10.46%)   556  (51.01%)   30   (2.75%) ----errorChecking_ham_1 (178 hidden instances, 1090 faults)
 }
 #------------------------------------------------------------------------------
 # Faults listed:       Prime: 0        Total: 0
@@ -43,26 +43,26 @@ Total             ND              DD            PD              NC              
 #
 #                                        Prime             Total
 #------------------------------------------------------------------------------
-# Total Faults:                          67546             67546
+# Total Faults:                          67858             67858
 #
-# Dropped Detected                 DD    24447  36.19%     24447  36.19%
-# Dropped Potential                PD      630   0.93%       630   0.93%
-# Not Detected                     ND     9784  14.48%      9784  14.48%
-# Not Strobed                      NS     1974   2.92%      1974   2.92%
-# Not Observed                     NO    15065  22.30%     15065  22.30%
-# Not Controlled                   NC    15646  23.16%     15646  23.16%
+# Dropped Detected                 DD    24497  36.10%     24497  36.10%
+# Dropped Potential                PD      614   0.90%       614   0.90%
+# Not Detected                     ND     9858  14.53%      9858  14.53%
+# Not Strobed                      NS     2000   2.95%      2000   2.95%
+# Not Observed                     NO    15177  22.37%     15177  22.37%
+# Not Controlled                   NC    15712  23.15%     15712  23.15%
 #
 # Faults not detected yet:
-#   Not simulated yet:                   32685  48.39%     32685  48.39%
-#   Simulated 1 to 5 times:              10414  15.42%     10414  15.42%
+#   Not simulated yet:                   32889  48.47%     32889  48.47%
+#   Simulated 1 to 5 times:              10472  15.43%     10472  15.43%
 #   Simulated 6 to 10 times:                 0   0.00%         0   0.00%
 #   Simulated > 10 times:                    0   0.00%         0   0.00%
 #
 # Faults potentially detected:
-#   Possible 1 to 5 times:                 630   0.93%       630   0.93%
+#   Possible 1 to 5 times:                 614   0.90%       614   0.90%
 #   Possible 6 to 10 times:                  0   0.00%         0   0.00%
 #   Possible > 10 times:                     0   0.00%         0   0.00%
 #
-# Test Coverage                                 36.66%            36.66%
-# Fault Coverage                                36.66%            36.66%
+# Test Coverage                                 36.55%            36.55%
+# Fault Coverage                                36.55%            36.55%
 #------------------------------------------------------------------------------
