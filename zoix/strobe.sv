@@ -12,6 +12,8 @@ module strobe;
 // Inject faults
 initial begin
 
+	force `TOPLEVEL.core_i.ex_stage_i.mult_voter.voter_1.U92.A1 = 1;
+
         $display("ZOIX INJECTION");
         //$fs_inject;       // by default
 
@@ -43,12 +45,22 @@ initial begin
 				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.alu_i.alu_1.result_o);
 				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.alu_i.alu_1.comparison_result_o);
 				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.alu_i.alu_1.ready_o);
+	
+				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_i.result_o);
+				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_i.multicycle_o);
+				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_i.mulh_active_o);
+				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_i.ready_o);
 
 				//PART2
 
 				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.alu_i.result_o);
 				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.alu_i.comparison_result_o);
 				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.alu_i.ready_o);
+				
+				$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_voter.result_o);
+				$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_voter.multicycle_o);
+				$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_voter.mulhactive_o);
+				$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.mult_voter.ready_o);
 
 				//PART3
 				

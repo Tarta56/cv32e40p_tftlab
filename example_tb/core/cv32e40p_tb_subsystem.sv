@@ -119,8 +119,8 @@ module cv32e40p_tb_subsystem #(
       .core_sleep_o  (core_sleep_o),
 	  .top_alu_faulty_1(),
 	  .top_alu_faulty_2(),
-      .top_alu_faulty_3()
-		
+      .top_alu_faulty_3(),
+	.top_mult_faulty_o()	
   );
 
 

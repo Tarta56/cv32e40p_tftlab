@@ -67,7 +67,8 @@ module cv32e40p_top #(
     output logic core_sleep_o,
 	output logic top_alu_faulty_1,
 	output logic top_alu_faulty_2,
-	output logic top_alu_faulty_3
+	output logic top_alu_faulty_3,
+	output logic top_mult_faulty_o
 );
 
   import cv32e40p_apu_core_pkg::*;
@@ -145,7 +146,8 @@ module cv32e40p_top #(
 
 	  .core_ex_alu_faulty_1(top_alu_faulty_1),
 	  .core_ex_alu_faulty_2(top_alu_faulty_2),
-	  .core_ex_alu_faulty_3(top_alu_faulty_3)
+	  .core_ex_alu_faulty_3(top_alu_faulty_3),
+	  .core_ex_mult_faulty_o(top_mult_faulty_o)
   );
 
   generate

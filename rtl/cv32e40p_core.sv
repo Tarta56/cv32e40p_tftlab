@@ -100,7 +100,12 @@ module cv32e40p_core
 
 	output logic core_ex_alu_faulty_1,
 	output logic core_ex_alu_faulty_2,
- 	output logic core_ex_alu_faulty_3
+ 	output logic core_ex_alu_faulty_3,
+
+	output logic core_ex_mult_faulty_o
+
+
+
 );
 
   import cv32e40p_pkg::*;
@@ -878,7 +883,10 @@ module cv32e40p_core
 
 	  .ex_alu_faulty_1(core_ex_alu_faulty_1),
 	  .ex_alu_faulty_2(core_ex_alu_faulty_2),
-	  .ex_alu_faulty_3(core_ex_alu_faulty_3)
+	  .ex_alu_faulty_3(core_ex_alu_faulty_3),
+
+	.ex_mult_faulty_o(core_ex_mult_faulty_o)
+
   );
 
 

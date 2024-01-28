@@ -165,7 +165,9 @@ module cv32e40p_ex_stage
 
 	output logic ex_alu_faulty_1,
 	output logic ex_alu_faulty_2,
- 	output logic ex_alu_faulty_3
+ 	output logic ex_alu_faulty_3,
+
+        output logic ex_mult_faulty_o
 );
 
   logic [                31:0] alu_result;
@@ -174,6 +176,14 @@ module cv32e40p_ex_stage
   logic [                31:0] alu_result_3;
 
   logic [                31:0] mult_result;
+  logic [                31:0] mult_result_1;
+  logic [                31:0] mult_result_2;
+  logic [                31:0] mult_result_3;
+
+  logic mult_multicycle_o_1;
+  logic mult_multicycle_o_2;
+  logic mult_multicycle_o_3;
+
 
   logic                        alu_cmp_result;
   logic                        alu_cmp_result_1;
@@ -192,7 +202,16 @@ module cv32e40p_ex_stage
   logic                        alu_ready_3;
 
   logic                        mulh_active;
+  logic                        mulh_active_1;
+   logic                        mulh_active_2;
+logic                        mulh_active_3;
+
   logic                        mult_ready;
+  logic                        mult_ready_1;
+  logic                        mult_ready_2;
+  logic                        mult_ready_3;
+
+
 
   // APU signals
   logic                        apu_valid;
@@ -406,13 +425,95 @@ module cv32e40p_ex_stage
       .clpx_shift_i(mult_clpx_shift_i),
       .clpx_img_i  (mult_clpx_img_i),
 
-      .result_o(mult_result),
+      .result_o(mult_result_1),
 
-      .multicycle_o (mult_multicycle_o),
-      .mulh_active_o(mulh_active),
-      .ready_o      (mult_ready),
+      .multicycle_o (m_3ult_multicycle_o_1),
+      .mulh_active_o(mulh_active_1),
+      .ready_o      (mult_ready_1),
       .ex_ready_i   (ex_ready_o)
   );
+
+ cv32e40p_mult mult_2 (
+      .clk  (clk),
+      .rst_n(rst_n),
+
+      .enable_i  (mult_en_i),
+      .operator_i(mult_operator_i),
+
+      .short_subword_i(mult_sel_subword_i),
+      .short_signed_i (mult_signed_mode_i),
+
+      .op_a_i(mult_operand_a_i),
+      .op_b_i(mult_operand_b_i),
+      .op_c_i(mult_operand_c_i),
+      .imm_i (mult_imm_i),
+
+      .dot_op_a_i  (mult_dot_op_a_i),
+      .dot_op_b_i  (mult_dot_op_b_i),
+      .dot_op_c_i  (mult_dot_op_c_i),
+      .dot_signed_i(mult_dot_signed_i),
+      .is_clpx_i   (mult_is_clpx_i),
+      .clpx_shift_i(mult_clpx_shift_i),
+      .clpx_img_i  (mult_clpx_img_i),
+
+      .result_o(mult_result_2),
+
+      .multicycle_o (mult_multicycle_o_2),
+      .mulh_active_o(mulh_active_2),
+      .ready_o      (mult_ready_2),
+      .ex_ready_i   (ex_ready_o)
+  );
+
+ cv32e40p_mult mult_3 (
+      .clk  (clk),
+      .rst_n(rst_n),
+
+      .enable_i  (mult_en_i),
+      .operator_i(mult_operator_i),
+
+      .short_subword_i(mult_sel_subword_i),
+      .short_signed_i (mult_signed_mode_i),
+
+      .op_a_i(mult_operand_a_i),
+      .op_b_i(mult_operand_b_i),
+      .op_c_i(mult_operand_c_i),
+      .imm_i (mult_imm_i),
+
+      .dot_op_a_i  (mult_dot_op_a_i),
+      .dot_op_b_i  (mult_dot_op_b_i),
+      .dot_op_c_i  (mult_dot_op_c_i),
+      .dot_signed_i(mult_dot_signed_i),
+      .is_clpx_i   (mult_is_clpx_i),
+      .clpx_shift_i(mult_clpx_shift_i),
+      .clpx_img_i  (mult_clpx_img_i),
+
+      .result_o(mult_result_3),
+
+      .multicycle_o (mult_multicycle_o_3),
+      .mulh_active_o(mulh_active_3),
+      .ready_o      (mult_ready_3),
+      .ex_ready_i   (ex_ready_o)
+  );
+
+cv32e40p_mult_voter mult_voter (
+	.result_o1(mult_result_1),
+	.result_o2(mult_result_2),
+	.result_o3(mult_result_3),
+	.multicycle_o1(mult_multicycle_o_1),
+	.multicycle_o2(mult_multicycle_o_2),
+	.multicycle_o3(mult_multicycle_o_3),
+	.mulhactive_o1(mulh_active_1),
+	.mulhactive_o2(mulh_active_2),
+	.mulhactive_o3(mulh_active_3),
+	.ready_o1(mult_ready_1),
+	.ready_o2(mult_ready_2),
+	.ready_o3(mult_ready_3),
+	.result_o(mult_result),
+	.multicycle_o(mult_multicycle_o),
+	.mulhactive_o(mulh_active),
+	.ready_o(mult_ready),
+	.faulty_o(ex_mult_faulty_o)
+);
 
   generate
     if (FPU == 1) begin : gen_apu

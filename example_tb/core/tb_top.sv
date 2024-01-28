@@ -25,6 +25,13 @@ module tb_top #(
     parameter DM_HALTADDRESS = 32'h1A110800
 );
 
+  `ifdef GATE_LEVEL_TOP
+    initial begin
+      force wrapper_i.top_i.core_i.ex_stage_i.mult_voter.voter_1.U92.A1 = 1;
+    end
+  `endif
+
+
   // comment to record execution trace
   //`define TRACE_EXECUTION
 
