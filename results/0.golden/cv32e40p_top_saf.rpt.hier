@@ -1,0 +1,79 @@
+Version("1.1")
+Date("01/27/24 19:09:27")
+User("s319857")
+Tool("FMGR")
+Info("  Type:    Fault Coverage Report")
+Info("  Version: T-2022.06-SP2 (64-bit, Nov 15 2022)")
+Info("  Models:  All")
+Info("  Classes: All")
+
+FunctionalBlocks{
+     1 design {
+           1  sbst 0ps {F:138676 ND:12758 DD:40175 PD:685 NC:15220 NO:68364 NS:1474}
+    }
+}
+
+FaultInfo{
+    FubNum;
+    TestNum;
+    Attempts;
+    NumPot;
+}
+
+FaultList{
+
+ Total              ND              DD            PD              NC              NO             NS Scope
+------ --------------- --------------- ------------- --------------- --------------- -------------- -----
+138676 12758   (9.20%) 40175  (28.97%) 685   (0.49%) 15220  (10.98%) 68364  (49.30%) 1474   (1.06%) cv32e40p_top (1 hidden instance, 4 faults)
+138672 12758   (9.20%) 40171  (28.97%) 685   (0.49%) 15220  (10.98%) 68364  (49.30%) 1474   (1.06%) -core_i (22 hidden instances, 160 faults)
+ 61736  7030  (11.39%) 24038  (38.94%) 644   (1.04%) 10730  (17.38%) 18682  (30.26%)  612   (0.99%) --id_stage_i (1813 hidden instances, 13826 faults)
+ 43178  5368  (12.43%) 15882  (36.78%) 517   (1.20%)  9526  (22.06%) 11885  (27.53%)    0   (0.00%) ---register_file_i (4743 hidden instances, 43178 faults)
+  2124   760  (35.78%)  1029  (48.45%)   0   (0.00%)    77   (3.63%)   258  (12.15%)    0   (0.00%) ---decoder_i (322 hidden instances, 2124 faults)
+  1860   151   (8.12%)   701  (37.69%)   4   (0.22%)   197  (10.59%)   683  (36.72%)  124   (6.67%) ---controller_i (271 hidden instances, 1860 faults)
+   748     0   (0.00%)     1   (0.13%)   0   (0.00%)     1   (0.13%)   708  (94.65%)   38   (5.08%) ---int_controller_i (103 hidden instances, 748 faults)
+ 34546  2674   (7.74%)  5111  (14.79%)   4   (0.01%)   891   (2.58%) 25790  (74.65%)   76   (0.22%) --ex_stage_i (101 hidden instances, 808 faults)
+ 17992  2548  (14.16%)  4688  (26.06%)   3   (0.02%)   813   (4.52%)  9878  (54.90%)   62   (0.34%) ---alu_1 (1363 hidden instances, 11248 faults)
+  5972     3   (0.05%)     9   (0.15%)   3   (0.05%)     9   (0.15%)  5892  (98.66%)   56   (0.94%) ----alu_div_i (775 hidden instances, 5972 faults)
+   432     0   (0.00%)     0   (0.00%)   0   (0.00%)     0   (0.00%)   432 (100.00%)    0   (0.00%) ----ff_one_i (63 hidden instances, 432 faults)
+   340     0   (0.00%)     0   (0.00%)   0   (0.00%)     0   (0.00%)   340 (100.00%)    0   (0.00%) ----popcnt_i (39 hidden instances, 340 faults)
+ 15746     3   (0.02%)    27   (0.17%)   1   (0.01%)    27   (0.17%) 15686  (99.62%)    2   (0.01%) ---mult_i (2023 hidden instances, 15746 faults)
+ 22178  1368   (6.17%)     7   (0.03%)   1   (0.00%)  1033   (4.66%) 19399  (87.47%)  370   (1.67%) --cs_registers_i (2603 hidden instances, 22178 faults)
+  5974  1007  (16.86%)  2836  (47.47%)   2   (0.03%)   962  (16.10%)  1105  (18.50%)   62   (1.04%) --load_store_unit_i (852 hidden instances, 5974 faults)
+ 14078   635   (4.51%)  8154  (57.92%)  34   (0.24%)  1593  (11.32%)  3336  (23.70%)  326   (2.32%) --if_stage_i (555 hidden instances, 4170 faults)
+  5294   180   (3.40%)  2908  (54.93%)  34   (0.64%)   507   (9.58%)  1437  (27.14%)  228   (4.31%) ---prefetch_buffer_i (44 hidden instances, 312 faults)
+  2402    94   (3.91%)  1090  (45.38%)  33   (1.37%)   453  (18.86%)   694  (28.89%)   38   (1.58%) ----prefetch_controller_i (337 hidden instances, 2402 faults)
+  1610    78   (4.84%)  1400  (86.96%)   0   (0.00%)     0   (0.00%)     2   (0.12%)  130   (8.07%) ----fifo_i (191 hidden instances, 1610 faults)
+   970     8   (0.82%)   106  (10.93%)   1   (0.10%)    54   (5.57%)   741  (76.39%)   60   (6.19%) ----instruction_obi_i (129 hidden instances, 970 faults)
+  3064   151   (4.93%)  2180  (71.15%)   0   (0.00%)   423  (13.81%)   304   (9.92%)    6   (0.20%) ---aligner_i (463 hidden instances, 3064 faults)
+  1550   118   (7.61%)  1382  (89.16%)   0   (0.00%)    20   (1.29%)    30   (1.94%)    0   (0.00%) ---compressed_decoder_i (224 hidden instances, 1550 faults)
+}
+#------------------------------------------------------------------------------
+# Faults listed:       Prime: 0        Total: 0
+#------------------------------------------------------------------------------
+# Fault Coverage Summary
+#
+#                                        Prime             Total
+#------------------------------------------------------------------------------
+# Total Faults:                         138676            138676
+#
+# Dropped Detected                 DD    40175  28.97%     40175  28.97%
+# Dropped Potential                PD      685   0.49%       685   0.49%
+# Not Detected                     ND    12758   9.20%     12758   9.20%
+# Not Strobed                      NS     1474   1.06%      1474   1.06%
+# Not Observed                     NO    68364  49.30%     68364  49.30%
+# Not Controlled                   NC    15220  10.98%     15220  10.98%
+#
+# Faults not detected yet:
+#   Not simulated yet:                   85058  61.34%     85058  61.34%
+#   Simulated 1 to 5 times:              13443   9.69%     13443   9.69%
+#   Simulated 6 to 10 times:                 0   0.00%         0   0.00%
+#   Simulated > 10 times:                    0   0.00%         0   0.00%
+#
+# Faults potentially detected:
+#   Possible 1 to 5 times:                 685   0.49%       685   0.49%
+#   Possible 6 to 10 times:                  0   0.00%         0   0.00%
+#   Possible > 10 times:                     0   0.00%         0   0.00%
+#
+# Test Coverage                                 29.22%            29.22%
+# Fault Coverage                                29.22%            29.22%
+#------------------------------------------------------------------------------
