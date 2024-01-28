@@ -65,10 +65,22 @@ module cv32e40p_top #(
     // CPU Control Signals
     input  logic fetch_enable_i,
     output logic core_sleep_o,
+
 	output logic top_alu_faulty_1,
 	output logic top_alu_faulty_2,
 	output logic top_alu_faulty_3,
-	output logic top_mult_faulty_o
+	output logic top_mult_faulty_o,
+
+
+    //my added primary outputs (indication about double data error detection from RF check)
+    output logic RF_DED_1,
+    output logic RF_DED_2,
+    output logic RF_DED_3,
+
+	output logic Single_error1,
+	output logic Single_error2,
+	output logic Single_error3
+
 );
 
   import cv32e40p_apu_core_pkg::*;
@@ -147,7 +159,16 @@ module cv32e40p_top #(
 	  .core_ex_alu_faulty_1(top_alu_faulty_1),
 	  .core_ex_alu_faulty_2(top_alu_faulty_2),
 	  .core_ex_alu_faulty_3(top_alu_faulty_3),
-	  .core_ex_mult_faulty_o(top_mult_faulty_o)
+	  .core_ex_mult_faulty_o(top_mult_faulty_o),
+
+      .RF_DED_1(RF_DED_1),
+      .RF_DED_2(RF_DED_2),
+      .RF_DED_3(RF_DED_3),
+
+	  .Single_error1(Single_error1),
+	  .Single_error2(Single_error2),
+	  .Single_error3(Single_error3)
+
   );
 
   generate
