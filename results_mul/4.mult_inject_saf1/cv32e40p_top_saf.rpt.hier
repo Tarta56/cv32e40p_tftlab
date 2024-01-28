@@ -1,5 +1,5 @@
 Version("1.1")
-Date("01/28/24 02:44:45")
+Date("01/28/24 15:29:27")
 User("s314294")
 Tool("FMGR")
 Info("  Type:    Fault Coverage Report")
@@ -9,7 +9,7 @@ Info("  Classes: All")
 
 FunctionalBlocks{
      1 design {
-           1  sbst 0ps {F:47944 ND:1218 DD:2161 NC:3379 NO:41158 NS:28}
+           1  sbst 0ps {F:47944 ND:2518 NC:2518 NO:42898 NS:10}
     }
 }
 
@@ -22,14 +22,14 @@ FaultInfo{
 
 FaultList{
 
-Total             ND             DD             NC              NO           NS Scope
------ -------------- -------------- -------------- --------------- ------------ -----
-47944 1218   (2.54%) 2161   (4.51%) 3379   (7.05%) 41158  (85.85%) 28   (0.06%) cv32e40p_top
-47944 1218   (2.54%) 2161   (4.51%) 3379   (7.05%) 41158  (85.85%) 28   (0.06%) -core_i
-47944 1218   (2.54%) 2161   (4.51%) 3379   (7.05%) 41158  (85.85%) 28   (0.06%) --ex_stage_i
-16078  610   (3.79%)    0   (0.00%)  610   (3.79%) 14846  (92.34%) 12   (0.07%) ---mult_i (2093 hidden instances, 16078 faults)
-16038  608   (3.79%)    0   (0.00%)  608   (3.79%) 14814  (92.37%)  8   (0.05%) ---mult_2 (2088 hidden instances, 16038 faults)
-15828    0   (0.00%) 2161  (13.65%) 2161  (13.65%) 11498  (72.64%)  8   (0.05%) ---mult_3 (2046 hidden instances, 15828 faults)
+Total             ND             NC              NO           NS Scope
+----- -------------- -------------- --------------- ------------ -----
+47944 2518   (5.25%) 2518   (5.25%) 42898  (89.48%) 10   (0.02%) cv32e40p_top
+47944 2518   (5.25%) 2518   (5.25%) 42898  (89.48%) 10   (0.02%) -core_i
+47944 2518   (5.25%) 2518   (5.25%) 42898  (89.48%) 10   (0.02%) --ex_stage_i
+16078 1262   (7.85%) 1262   (7.85%) 13548  (84.26%)  6   (0.04%) ---mult_i (2093 hidden instances, 16078 faults)
+16038 1256   (7.83%) 1256   (7.83%) 13524  (84.32%)  2   (0.01%) ---mult_2 (2088 hidden instances, 16038 faults)
+15828    0   (0.00%)    0   (0.00%) 15826  (99.99%)  2   (0.01%) ---mult_3 (2046 hidden instances, 15828 faults)
 }
 #------------------------------------------------------------------------------
 # Faults listed:       Prime: 0        Total: 0
@@ -40,16 +40,16 @@ Total             ND             DD             NC              NO           NS 
 #------------------------------------------------------------------------------
 # Total Faults:                          47944             47944
 #
-# Dropped Detected                 DD     2161   4.51%      2161   4.51%
+# Dropped Detected                 DD        0   0.00%         0   0.00%
 # Dropped Potential                PD        0   0.00%         0   0.00%
-# Not Detected                     ND     1218   2.54%      1218   2.54%
-# Not Strobed                      NS       28   0.06%        28   0.06%
-# Not Observed                     NO    41158  85.85%     41158  85.85%
-# Not Controlled                   NC     3379   7.05%      3379   7.05%
+# Not Detected                     ND     2518   5.25%      2518   5.25%
+# Not Strobed                      NS       10   0.02%        10   0.02%
+# Not Observed                     NO    42898  89.48%     42898  89.48%
+# Not Controlled                   NC     2518   5.25%      2518   5.25%
 #
 # Faults not detected yet:
-#   Not simulated yet:                   44565  92.95%     44565  92.95%
-#   Simulated 1 to 5 times:               1218   2.54%      1218   2.54%
+#   Not simulated yet:                   45426  94.75%     45426  94.75%
+#   Simulated 1 to 5 times:               2518   5.25%      2518   5.25%
 #   Simulated 6 to 10 times:                 0   0.00%         0   0.00%
 #   Simulated > 10 times:                    0   0.00%         0   0.00%
 #
@@ -58,6 +58,6 @@ Total             ND             DD             NC              NO           NS 
 #   Possible 6 to 10 times:                  0   0.00%         0   0.00%
 #   Possible > 10 times:                     0   0.00%         0   0.00%
 #
-# Test Coverage                                  4.51%             4.51%
-# Fault Coverage                                 4.51%             4.51%
+# Test Coverage                                  0.00%             0.00%
+# Fault Coverage                                 0.00%             0.00%
 #------------------------------------------------------------------------------
