@@ -1,0 +1,5 @@
+
+
+In this test, the hardened Register File was tested PLUS additionally, there was the inclusion of the double Error Detection signals in the strobe file.
+
+

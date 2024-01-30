@@ -1,0 +1,68 @@
+Version("1.1")
+Date("01/28/24 17:29:53")
+User("s308882")
+Tool("FMGR")
+Info("  Type:    Fault Coverage Report")
+Info("  Version: T-2022.06-SP2 (64-bit, Nov 15 2022)")
+Info("  Models:  All")
+Info("  Classes: All")
+
+FunctionalBlocks{
+     1 design {
+           1  sbst 0ps {F:67858 ND:9801 DD:24508 PD:662 NC:15714 NO:15209 NS:1964}
+    }
+}
+
+FaultInfo{
+    FubNum;
+    TestNum;
+    Attempts;
+    NumPot;
+}
+
+FaultList{
+
+Total             ND              DD            PD              NC              NO             NS Scope
+----- -------------- --------------- ------------- --------------- --------------- -------------- -----
+67858 9801  (14.44%) 24508  (36.12%) 662   (0.98%) 15714  (23.16%) 15209  (22.41%) 1964   (2.89%) cv32e40p_top
+67858 9801  (14.44%) 24508  (36.12%) 662   (0.98%) 15714  (23.16%) 15209  (22.41%) 1964   (2.89%) -core_i
+67858 9801  (14.44%) 24508  (36.12%) 662   (0.98%) 15714  (23.16%) 15209  (22.41%) 1964   (2.89%) --id_stage_i
+67858 9801  (14.44%) 24508  (36.12%) 662   (0.98%) 15714  (23.16%) 15209  (22.41%) 1964   (2.89%) ---register_file_i (2 hidden instances, 8 faults)
+64554 9697  (15.02%) 22570  (34.96%) 662   (1.03%) 15448  (23.93%) 14243  (22.06%) 1934   (3.00%) ----register_file_ff_i (8973 hidden instances, 64554 faults)
+  348   45  (12.93%)   294  (84.48%)   0   (0.00%)     9   (2.59%)     0   (0.00%)    0   (0.00%) ----hamming_generator_4 (58 hidden instances, 348 faults)
+  350   26   (7.43%)   246  (70.29%)   0   (0.00%)    76  (21.71%)     0   (0.00%)    2   (0.57%) ----hamming_generator_1 (58 hidden instances, 350 faults)
+  360   18   (5.00%)   329  (91.39%)   0   (0.00%)     5   (1.39%)     0   (0.00%)    8   (2.22%) ----hamming_generator_3 (59 hidden instances, 360 faults)
+  364   10   (2.75%)   344  (94.51%)   0   (0.00%)    10   (2.75%)     0   (0.00%)    0   (0.00%) ----hamming_generator_2 (62 hidden instances, 364 faults)
+  784    5   (0.64%)   326  (41.58%)   0   (0.00%)    51   (6.51%)   394  (50.26%)    8   (1.02%) ----errorChecking_ham_2 (108 hidden instances, 784 faults)
+ 1090    0   (0.00%)   391  (35.87%)   0   (0.00%)   115  (10.55%)   572  (52.48%)   12   (1.10%) ----errorChecking_ham_1 (178 hidden instances, 1090 faults)
+}
+#------------------------------------------------------------------------------
+# Faults listed:       Prime: 0        Total: 0
+#------------------------------------------------------------------------------
+# Fault Coverage Summary
+#
+#                                        Prime             Total
+#------------------------------------------------------------------------------
+# Total Faults:                          67858             67858
+#
+# Dropped Detected                 DD    24508  36.12%     24508  36.12%
+# Dropped Potential                PD      662   0.98%       662   0.98%
+# Not Detected                     ND     9801  14.44%      9801  14.44%
+# Not Strobed                      NS     1964   2.89%      1964   2.89%
+# Not Observed                     NO    15209  22.41%     15209  22.41%
+# Not Controlled                   NC    15714  23.16%     15714  23.16%
+#
+# Faults not detected yet:
+#   Not simulated yet:                   32887  48.46%     32887  48.46%
+#   Simulated 1 to 5 times:              10463  15.42%     10463  15.42%
+#   Simulated 6 to 10 times:                 0   0.00%         0   0.00%
+#   Simulated > 10 times:                    0   0.00%         0   0.00%
+#
+# Faults potentially detected:
+#   Possible 1 to 5 times:                 662   0.98%       662   0.98%
+#   Possible 6 to 10 times:                  0   0.00%         0   0.00%
+#   Possible > 10 times:                     0   0.00%         0   0.00%
+#
+# Test Coverage                                 36.60%            36.60%
+# Fault Coverage                                36.60%            36.60%
+#------------------------------------------------------------------------------

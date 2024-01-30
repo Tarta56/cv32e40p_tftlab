@@ -43,7 +43,20 @@ initial begin
                 $fs_strobe(`TOPLEVEL.data_wdata_o);
                 $fs_strobe(`TOPLEVEL.data_be_o);
 
+<<<<<<< HEAD
 				// PART1
+=======
+//for DED
+		$fs_strobe(`TOPLEVEL.RF_DED_1);
+		$fs_strobe(`TOPLEVEL.RF_DED_2);
+		$fs_strobe(`TOPLEVEL.RF_DED_3);
+
+	$fs_strobe(`TOPLEVEL.Single_error1);
+	$fs_strobe(`TOPLEVEL.Single_error2);
+	$fs_strobe(`TOPLEVEL.Single_error3);
+
+
+>>>>>>> origin/branchGio2
 
 
 				//$fs_strobe(`TOPLEVEL.core_i.ex_stage_i.alu_i.alu_1.result_o);

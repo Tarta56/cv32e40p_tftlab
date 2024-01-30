@@ -27,9 +27,9 @@
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-module cv32e40p_register_file #(
+module cv32e40p_register_file_ff #(
     parameter ADDR_WIDTH = 5,
-    parameter DATA_WIDTH = 32,
+    parameter DATA_WIDTH = 38,
     parameter FPU        = 0,
     parameter ZFINX      = 0
 ) (
@@ -116,10 +116,10 @@ module cv32e40p_register_file #(
     always_ff @(posedge clk or negedge rst_n) begin
       if (~rst_n) begin
         // R0 is nil
-        mem[0] <= 32'b0;
+        mem[0] <= 38'b0;
       end else begin
         // R0 is nil
-        mem[0] <= 32'b0;
+        mem[0] <= 38'b0;
       end
     end
 
@@ -128,7 +128,7 @@ module cv32e40p_register_file #(
 
       always_ff @(posedge clk, negedge rst_n) begin : register_write_behavioral
         if (rst_n == 1'b0) begin
-          mem[i] <= 32'b0;
+          mem[i] <= 38'b0;
         end else begin
           if (we_b_dec[i] == 1'b1) mem[i] <= wdata_b_i;
           else if (we_a_dec[i] == 1'b1) mem[i] <= wdata_a_i;
